@@ -15,11 +15,11 @@ public class RoundRobinBalancer implements Balanceable {
         if (hosts.size() == 0) throw new NoHostException();
 
         Host allocatedHost = hosts.get(hostIndex);
-        caclutateNewHostIndex(hosts.size()-1);
+        calculateNewHostIndex(hosts.size()-1);
         return allocatedHost;
     }
 
-    private void caclutateNewHostIndex(int maxIndex) {
+    private void calculateNewHostIndex(int maxIndex) {
         hostIndex = hostIndex == maxIndex ? hostIndex = 0 : ++hostIndex;
     }
 }
